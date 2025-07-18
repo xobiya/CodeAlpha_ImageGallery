@@ -1,5 +1,7 @@
 # Image Gallery
 
+![Gallery Preview](Image%20gallery.png)
+
 A simple and elegant web-based Image Gallery application. This project allows users to browse a collection of beautiful images with a clean and responsive interface.
 
 ## Features
