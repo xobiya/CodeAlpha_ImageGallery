@@ -1,0 +1,207 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #181a1b;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.gallery-bg-gradient {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #23272a 0%, #00bcd4 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-container.enhanced {
+  max-width: 950px;
+  width: 98vw;
+  margin: 40px auto;
+  background: rgba(30, 32, 34, 0.98);
+  border-radius: 22px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+  padding: 36px 28px 24px 28px;
+  position: relative;
+  z-index: 1;
+}
+
+header, footer {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.main-image-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+  min-height: 440px;
+}
+
+#mainImage {
+  width: 340px;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+  background: #fff;
+  transition: box-shadow 0.3s, transform 0.3s, opacity 0.5s;
+  opacity: 0;
+  animation: fadeIn 0.7s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.gallery-carousel {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding: 12px 0;
+  margin-bottom: 24px;
+  scrollbar-width: thin;
+  scrollbar-color: #00bcd4 #23272a;
+}
+.gallery-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+.gallery-carousel::-webkit-scrollbar-thumb {
+  background: #00bcd4;
+  border-radius: 4px;
+}
+
+.gallery-carousel img {
+  width: 100px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0.7;
+  border: 2px solid transparent;
+  transition: transform 0.2s, border 0.2s, opacity 0.2s, box-shadow 0.2s;
+  background: #fff;
+}
+.gallery-carousel img.selected,
+.gallery-carousel img:hover {
+  opacity: 1;
+  border: 2.5px solid #00bcd4;
+  transform: scale(1.10);
+  box-shadow: 0 2px 16px rgba(0,188,212,0.18);
+  z-index: 2;
+}
+
+.gallery-controls {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+.gallery-controls button {
+  background: linear-gradient(90deg, #00bcd4 60%, #0097a7 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,188,212,0.10);
+  transition: background 0.2s, transform 0.2s;
+}
+.gallery-controls button:hover {
+  background: #0097a7;
+  transform: translateY(-2px) scale(1.04);
+}
+
+footer {
+  margin-top: 18px;
+  color: #b0eaff;
+  font-size: 1rem;
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.85);
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s;
+}
+.lightbox-modal.active {
+  display: flex;
+}
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,188,212,0.25);
+  background: #fff;
+  animation: fadeIn 0.5s;
+}
+.lightbox-close {
+  position: absolute;
+  top: 32px;
+  right: 48px;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1100;
+  transition: color 0.2s;
+}
+.lightbox-close:hover {
+  color: #00bcd4;
+}
+
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+.filter-btn {
+  background: #23272a;
+  color: #00bcd4;
+  border: 2px solid #00bcd4;
+  border-radius: 8px;
+  padding: 8px 22px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.filter-btn.active, .filter-btn:hover {
+  background: #00bcd4;
+  color: #fff;
+  border: 2px solid #00bcd4;
+}
+
+@media (max-width: 600px) {
+  .gallery-container.enhanced {
+    padding: 10px 2px;
+  }
+  #mainImage {
+    width: 98vw;
+    height: 220px;
+  }
+  .gallery-carousel img {
+    width: 60px;
+    height: 70px;
+  }
+  .lightbox-content {
+    max-width: 98vw;
+    max-height: 60vh;
+  }
+  .lightbox-close {
+    top: 12px;
+    right: 18px;
+    font-size: 2rem;
+  }
+}
