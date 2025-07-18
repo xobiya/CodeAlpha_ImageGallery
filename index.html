@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>codeAlpha Image Gallery</title>
+  <link rel="stylesheet" href="Style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="gallery-bg-gradient">
+    <div class="gallery-container enhanced">
+      <header>
+        <h1>Image Gallery</h1>
+      </header>
+      <main>
+        <div class="filter-bar">
+          <button class="filter-btn" data-category="all">All</button>
+          <button class="filter-btn" data-category="nature">Nature</button>
+          <button class="filter-btn" data-category="city">City</button>
+          <button class="filter-btn" data-category="people">People</button>
+        </div>
+        <div class="main-image-area">
+          <img id="mainImage" src="Image/abay.jpg" alt="Main Display">
+        </div>
+        <div class="gallery-carousel" id="galleryCarousel">
+          <!-- Thumbnails will be rendered here by JS -->
+        </div>
+        <div class="gallery-controls">
+          <button id="prevBtn" aria-label="Previous image">&#8592; Prev</button>
+          <button id="nextBtn" aria-label="Next image">Next &#8594;</button>
+        </div>
+      </main>
+      <footer>
+        <p>&copy; 2025 Modern Gallery</p>
+      </footer>
+    </div>
+    <div id="lightboxModal" class="lightbox-modal">
+      <span class="lightbox-close" id="lightboxClose">&times;</span>
+      <img class="lightbox-content" id="lightboxImg" src="" alt="Full Size">
+    </div>
+  </div>
+  <script src="Script.js"></script>
+</body>
+</html>
